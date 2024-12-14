@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="ja"><head> <meta charset="utf-8"> <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height,initial-scale=1, maximum-scale=6"> <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="format-detection" content="telephone=no"> <meta name="theme-color" content="#83d3e2"> <meta name="msapplication-TileColor" content="#83d3e2"> <meta name="keywords" content="カードメーカー,オリカ"> <meta name="description" content="簡単操作でオリジナルカードが作れるウェブサービス、ORICA(オリカ)です。作ったカードは友達にシェアしたりして遊んでみてね。"> <meta name="robots" content="noydir,noodp"> <meta property="og:url" content="https://charat.me/orica/"> <meta property="og:type" content="website"> <meta property="og:title" content="カードメーカーORICA(オリカ)"> <meta property="og:description" content="簡単操作でオリジナルカードが作れるウェブサービス、ORICA(オリカ)です。作ったカードは友達にシェアしたりして遊んでみてね。"> <meta property="og:site_name" content="ORICA"> <meta property="og:image" content="../../charat.me/orica/ogp.png"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@charatme"> <meta name="twitter:creator" content="@charatme"> <meta name="twitter:title" content="カードメーカーORICA(オリカ)"> <meta name="twitter:description" content="簡単操作でオリジナルカードが作れるウェブサービス、ORICA(オリカ)です。作ったカードは友達にシェアしたりして遊んでみてね。"> <meta name="twitter:url" content="https://charat.me/orica/"> <meta name="twitter:image" content="https://charat.me/orica/ogp.png"> <link rel="manifest" href="https://charat.me/orica/manifest.json" crossorigin="use-credentials"> <link defer="" href="../../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> <link defer="" href="../../cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet"> <link defer="" rel="stylesheet" href="../../charat.me/orica/css/app.css"> <script data-ad-client="ca-pub-1176782719838219" async="" src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <title>カード作成|カードメーカーORICA(オリカ)</title> </head> <body> <div id="app"> 
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card-area card-area-shadow mx-auto">
+        <form id="cardForm" name="cardForm" method="" action="">
+          <input type="hidden" name="_token" value="LiBQHxFowEzbfEte5cDQb9wDY8aYqUQnJjriC97M">          <!-- Modal -->
+          <div class="modal fade" id="PreviewModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-0 p-2">
+                  <div class="mx-auto">
+                    <h2 class="modal-title pl-5" id="ModalTitle">完成！</h2>
+                  </div>
+                  <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                                    <div class="download-message-sp">
+                    <p class="text-center m-1">
+                    <i class="fas fa-download"></i> 画像を長押ししてダウンロード</p>
+                  </div>
+                                    <p class="text-center mb-0">
+                    <img src="" class="card-complete-image" alt="カード画像" id="canvas-image" width="240" height="348">
+                  </p>
+                  <div class="download-message-pc mt-3">
+                    <a id="image-download" href="" download="">
+                      <div class="select-btn btn-type1 w-75 mx-auto"><i class="fas fa-download"></i> 画像をダウンロード</div>
+                    </a>
+                    <div class="select-btn btn-type1 w-75  mt-2 mx-auto" onclick="cardShare(001)"><i class="fab fa-twitter"></i> Twitterにシェア</div>
+                    <a href="../../">
+                      <div class="select-btn btn-type2 w-75 mt-2 mx-auto"><i class="fas fa-home"></i> TOPへ戻る</div>
+                    </a>
+                  </div>
+                  <div class="download-message-sp">
+                                      <a href="../../">
+                      <div class="top-return-btn"><i class="fas fa-home"></i> TOPへ戻る</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="modal-footer border-0">
+                  <!-- シェアボタン -->
+                  <div class="mx-auto card-text">
+                    <div class="font-small text-center"><i class="fas fa-share-alt"></i> このサイトをSNSにシェア！</div>
+                    <div class="d-flex justify-content-between align-items-center pr-3 pl-3">
+                      <div class="snsicon sns-tw" onclick="cardShare(001)"></div>
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://charat.me/orica/" target="_blank" rel="noopener">
+                        <div class="snsicon sns-fb"></div>
+                      </a>
+                      <a href="http://line.me/R/msg/text/?カードメーカーORICA(オリカ)https://charat.me/orica/?openExternalBrowser=1" target="_blank" rel="noopener">
+                        <div class="snsicon sns-line"></div>
+                      </a>
+                      <a href="http://b.hatena.ne.jp/entry/https://charat.me/orica/" data-hatena-bookmark-title="カードメーカーORICA(オリカ)" data-hatena-bookmark-layout="simple" title="このエントリをはてなブックマークに追�&nbsp;" target="_blank" rel="noopener">
+                        <div class="snsicon sns-hatena"></div>
+                      </a>
+                      <div class="snsicon sns-share" id="webshare" aria-label="Web Share APIでシェア"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-all-wrapper"> <div class="card-wrapper"> <div class="card-switch preview-mode2"> <div class="card-switch-b"> <input id="cardCheck" name="card_switch" type="checkbox" onclick="cardSwitch(this,'checkBox')"> <label for="cardCheck">表 <small><i class="fas fa-exchange-alt"></i></small> 裏</label> </div> <div class="card-switch-b"> <div id="preview" class="preview-switch">プレビュー</div> </div> <div class="card-switch-a d-none"> <div onclick="cardPreview()" class="complete-switch"><small><i class="fas fa-check"></i></small> 完成</div> </div> </div> <div class="preview-wrap"> <div id="card-cap-area"> <div class="is-surface"> <div class="card_surface" id="card_surface"> <div class="card-top-wrap"> <div class=""> <div class="name-title-wrap"> <div class="name-title-frame licenseborder"> <div class="name-title drag-and-drop">氏名</div> </div> </div> <div class="card-name-wrap"> <div class="card-name-frame licenseborder"> <div class="card-name drag-and-drop"> {{ name }} </div> </div> </div> <div class="birth-wrap"> <div class="birth-frame licenseborder"> <div class="birth drag-and-drop"> {{ birthday }} </div> </div> </div> </div> </div> <div class="card-body-all-wrap"> <div class="card-body-wrap"> <div class="card-body-frame licenseborder"> <div class="image-all-wrap"> <div class="image-wrap"> <div class="image-uploader"> <div class="croppedCanvas2"><img src="" id="croppedCanvas2"></div> </div> </div> </div> <div class="address-title-wrap"> <div class="address-title-frame licenseborder"> <div class="address-title drag-and-drop"> {{ addressTitle }} </div> </div> </div> <div class="address-wrap"> <div class="address-frame licenseborder"> <div class="address drag-and-drop"> {{ address }} </div> </div> </div> <div class="delivery-title-wrap"> <div class="delivery-title-frame licenseborder"> <div class="delivery-title drag-and-drop"> {{ deliveryTitle }} </div> </div> </div> <div class="delivery-wrap"> <div class="delivery-frame licenseborder"> <div class="delivery drag-and-drop"> {{ deliveryDate }} </div> </div> </div> <div class="deadline-wrap"> <div class="deadline-frame licenseborder"> <div class="deadline drag-and-drop"> {{ deadline }} </div> </div> </div> <div class="licensename-wrap"> <div class="licensename-frame licenseborder"> <div class="licensename"> {{ licenseName }} </div> </div> </div> <div class="terms-title-wrap"> <div class="terms-title-frame licenseborder drag-and-drop"> <div class="terms-title"> {{ termsTitle }} </div> </div> </div> <div class="terms-wrap"> <div class="terms-frame licenseborder drag-and-drop"> <div class="terms"> {{ terms }} </div> <div class="excellent-frame licenseborder drag-and-drop" id="excellent-frame" style="display:none;"> <div class="excellent"> {{ excellent }} </div> </div> </div> </div> <div class="number-title-wrap"> <div class="number-title-frame licenseborder"> <div class="number-title"> 番 号 </div> </div> </div> <div class="number-wrap"> <div class="number-frame licenseborder"> <div class="number"> 第　<span>{{ number1 }}<span class="redbg">{{ number2 }}</span>{{ number3 }}</span>　号 </div> </div> </div> <div class="twowheels-title-wrap"> <div class="twowheels-title-frame licenseborder"> <div class="twowheels-title drag-and-drop"> {{ twowheelsTitle }} </div> </div> </div> <div class="twowheels-wrap"> <div class="twowheels-frame licenseborder"> <div class="date drag-and-drop"> {{ twowheelsDate }} </div> </div> </div> <div class="other-title-wrap"> <div class="other-title-frame licenseborder"> <div class="other-title drag-and-drop"> {{ otherTitle }} </div> </div> </div> <div class="other-wrap"> <div class="other-frame licenseborder"> <div class="date drag-and-drop"> {{ otherDate }} </div> </div> </div> <div class="twoclass-title-wrap"> <div class="twoclass-title-frame licenseborder"> <div class="twoclass-title drag-and-drop"> {{ twoclassTitle }} </div> </div> </div> <div class="twoclass-wrap"> <div class="twoclass-frame licenseborder"> <div class="date drag-and-drop"> {{ twoclassDate }} </div> </div> </div> <div class="committee-wrap"> <div class="committee-frame licenseborder drag-and-drop"> <div class="committee"> {{ committee }} </div> </div> </div> <div class="typetable-all-wrap"> <div class="typetable-wrap"> <table class="typetable redbg"> <tbody><tr> <td rowspan="2" class="fill typetitle-wrap"> <span class="typetitle">種　類</span> </td> <td><span class="typecontent">{{ type1 }}<span id="typenone1" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type2 }}<span id="typenone2" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type3 }}<span id="typenone3" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type4 }}<span id="typenone4" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type5 }}<span id="typenone5" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type6 }}<span id="typenone6" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type7 }}<span id="typenone7" style="display:block;">一</span></span></td> </tr> <tr> <td><span class="typecontent">{{ type8 }}<span id="typenone8" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type9 }}<span id="typenone9" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type10 }}<span id="typenone10" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type11 }}<span id="typenone11" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type12 }}<span id="typenone12" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type13 }}<span id="typenone13" style="display:block;">一</span></span></td> <td><span class="typecontent">{{ type14 }}<span id="typenone14" style="display:block;">一</span></span></td> </tr> </tbody></table> </div> </div> <div class="kakuin-all-wrap"> <div class="kakuin-wrap"> <div id="kakuin-area" class="kakuin drag-and-drop"> {{ licenseKakuin }} </div> </div> </div> </div> </div> </div> </div> <div class="card_reverse" id="card_reverse"> <div class="reverse-wrap"> <div class="remarks-frame reverseborder"> <div class="remarks-line-wrap"> <div class="line1 reverseborder-line"> <div class="remarks-text1"> {{ remarksText1 }} </div> </div> <div class="line2 reverseborder-line"> <div class="remarks-text2"> {{ remarksText2 }} </div> </div> <div class="line3 reverseborder-line"> <div class="remarks-text3"> {{ remarksText3 }} </div> </div> <div class="line4 reverseborder-line"> <div class="remarks-text4"> {{ remarksText4 }} </div> </div> <div class="line5"> <div class="remarks-text5"> {{ remarksText5 }} </div> </div> <div class="remarks-title-frame reverseborder"> <div class="remarks-title"> {{ remarksTitle }} </div> </div> </div> </div> </div> <div class="reverse-text-wrap"> <div class="reverse-text"> {{ reverseText }} </div> </div> <div> <div class="brackets1 reverseborder-text"> [ </div> <div class="special-title-wrap"> <div class="special-title">{{ specialTitle }}</div> </div> <span class="colon reverseborder-text"> ： </span> <div class="special-text-wrap"> <div class="special-text">{{ specialText }}</div> </div> <div class="brackets2 reverseborder-text"> ] </div> </div> <div> <div class="sign-title-wrap reverseborder"> <div class="sign-title"> {{ signTitle }} </div> </div> <div class="sign-title-text-wrap"> <div class="sign-title-text"> {{ signTitleText }} </div> </div> <div class="sign-date-wrap reverseborder"> <div class="sign-date"> {{ signDate }} </div> </div> <div class="sign-date-text-wrap"> <div class="sign-date-text"> {{ signDateText }} </div> </div> </div> </div> </div> </div> <div id="card-adjust-message" class="card-adjust-message d-none"> <p>※文字などの一部の要�&nbsp;はドラッグアンドドロップ(スワイプ)で位置を調整できます</p> </div> </div> </div> <div class="surface-input"> <div class="scroll-nav"> <ul> <li> <input id="surface-name-tab" name="menu-tab" type="radio" value="1" checked=""> <label class="tab_item" for="surface-name-tab">氏名・生年月日</label> </li> <li> <input id="surface-image-tab" name="menu-tab" type="radio" value="2"> <label class="tab_item" for="surface-image-tab">写真</label> </li> <li> <input id="surface-address-tab" name="menu-tab" type="radio" value="3"> <label class="tab_item" for="surface-address-tab">住所・交付日</label> </li> <li> <input id="surface-deadline-tab" name="menu-tab" type="radio" value="4"> <label class="tab_item" for="surface-deadline-tab">有効期限</label> </li> <li> <input id="surface-terms-tab" name="menu-tab" type="radio" value="5"> <label class="tab_item" for="surface-terms-tab">条件等 </label></li> <li> <input id="surface-licensename-tab" name="menu-tab" type="radio" value="11"> <label class="tab_item" for="surface-licensename-tab">免許証名</label> </li> <li> <input id="surface-number-tab" name="menu-tab" type="radio" value="6"> <label class="tab_item" for="surface-number-tab">番号</label> </li> <li> <input id="surface-kakuin-tab" name="menu-tab" type="radio" value="7"> <label class="tab_item" for="surface-kakuin-tab">取得日</label> </li> <li> <input id="surface-type-tab" name="menu-tab" type="radio" value="8"> <label class="tab_item" for="surface-type-tab">種類</label> </li> <li> <input id="surface-emblem-tab" name="menu-tab" type="radio" value="9"> <label class="tab_item" for="surface-emblem-tab">委員会</label> </li> <li> <input id="surface-color-tab" name="menu-tab" type="radio" value="10"> <label class="tab_item" for="surface-color-tab">カラー設定</label> </li> </ul> </div> </div> <div class="reverse-input" style="display:none;"> <div class="scroll-nav"> <ul> <li> <input id="reverse-remarks-tab" name="menu-tab2" type="radio" value="1" checked=""> <label class="tab_item" for="reverse-remarks-tab">備考</label> </li> <li> <input id="reverse-text-tab" name="menu-tab2" type="radio" value="2"> <label class="tab_item" for="reverse-text-tab">注意書き</label> </li> <li> <input id="reverse-special-tab" name="menu-tab2" type="radio" value="3"> <label class="tab_item" for="reverse-special-tab">特記欄</label> </li> <li> <input id="reverse-sign-tab" name="menu-tab2" type="radio" value="4"> <label class="tab_item" for="reverse-sign-tab">署名欄</label> </li> <li> <input id="reverse-color-tab" name="menu-tab2" type="radio" value="5"> <label class="tab_item" for="reverse-color-tab">カラー設定</label> </li> </ul> </div> </div> </div>          <div class="input-area-wrapper">
+  <!-- 表面 -->
+  <div class="surface-input">
+
+    <!-- 氏名・生年月日 -->
+    <div id="inputArea1" class="input-area" style="display: block">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <input id="input-name" type="text" name="name" v-model="name" class="input-field mb-2" value="" placeholder="氏名を入力">
+        </div>
+
+        <div class="card-name-pro">
+          <p class="m-0">文字サイズ：</p>
+          <select id="name_size" name="name_size" class="color-field" onchange="nameSizeChange()">
+            <option value="1">中</option>
+            <option value="2">小</option>
+            <option value="3">大</option>
+          </select>
+        </div>
+
+        <div class="mt-2">
+          <input id="input-birthday" type="text" name="birthday" v-model="birthday" class="input-field mb-2" value="" placeholder="生年月日を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- 写真 -->
+    <div id="inputArea2" class="input-area">
+      <div class="input-area-body">
+        <!-- モーダル呼び出し -->
+        <div class="select-btn btn-type1" onclick="imgTrim()">
+          写真をアップロード
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header py-2">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  写真をトリミング
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body modal-crop">
+                <input type="file" name="img_path" id="uploader" accept=".png, .jpg, .jpeg, .gif" style="display: none">
+                <canvas class="image-canvas" id="sourceCanvas" width="1" height="1"></canvas>
+              </div>
+              <div class="modal-footer border-0">
+                <div class="btn btn-dark canvas-button" data-dismiss="modal" id="canvas-button" style="display: none">OK</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 住所・交付日 -->
+    <div id="inputArea3" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="d-flex flex-wrap justify-content-between">  
+          <div class="card-name-pro mb-2">
+            <input id="input-addressTitle" type="text" name="addressTitle" v-model="addressTitle" class="input-field w-25" value="" placeholder="�&nbsp;�目名を入力">
+
+            <input id="input-address" type="text" name="address" v-model="address" class="input-field w-75 ml-2" value="" placeholder="住所を入力">
+          </div>
+
+          <div class="card-name-pro">
+            <input id="input-deliveryTitle" type="text" name="deliveryTitle" v-model="deliveryTitle" class="input-field w-25" value="" placeholder="�&nbsp;�目名を入力">
+
+            <input id="input-deliveryDate" type="text" name="deliveryDate" v-model="deliveryDate" class="input-field w-75 ml-2" value="" placeholder="交付日・番号を入力">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 有効期限 -->
+    <div id="inputArea4" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <input id="input-deadline" type="text" name="deadline" v-model="deadline" class="input-field mb-2" value="" placeholder="有効期限を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- 条件等 -->
+    <div id="inputArea5" class="input-area">
+      <div class="input-area-body mb-0 pb-1">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <textarea name="termstitle" rows="1" cols="40" class="input-field mb-1" v-model="termsTitle" placeholder="�&nbsp;�目名を入力"></textarea>
+        </div>
+
+        <div>
+          <textarea name="terms" rows="1" cols="40" class="input-field mb-2" v-model="terms" placeholder="免許の条件を入力"></textarea>
+        </div>
+      </div>
+
+      <div class="input-area-body pt-0 pb-1">
+        <div class="d-flex">
+          <h4 class="pt-1">優良スタンプを表示する</h4>
+          <div class="switchArea ml-2">
+            <input type="checkbox" id="stamp-switch" onclick="checkStamp(this,'checkBox')">
+            <label for="stamp-switch"><span></span></label>
+            <div id="swImg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="stamp-input-area" style="display:none;">
+        <div class="input-area-body pt-0">
+          <input id="input-excellent" type="text" name="excellent" v-model="excellent" class="input-field mb-2" value="" placeholder="スタンプの文字を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- 番号 -->
+    <div id="inputArea6" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="d-flex nowrap mb-2">
+          <input id="number1" type="text" name="number1" v-model="number1" class="input-field w-50 mr-1" value="" placeholder="0000">
+
+          <input id="number2" type="text" name="number2" v-model="number2" class="input-field w-50 ml-1 mr-1" value="" placeholder="0000">
+
+          <input id="number3" type="text" name="number3" v-model="number3" class="input-field w-50 ml-1" value="" placeholder="0000">
+        </div>
+      </div>
+    </div>
+
+    <!-- 取得日 -->
+    <div id="inputArea7" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro mb-2">
+            <input id="input-twowheelsTitle" type="text" name="twowheelsTitle" v-model="twowheelsTitle" class="input-field w-50" value="" placeholder="�&nbsp;�目名を入力">
+
+            <input id="input-twowheelsDate" type="text" name="twowheelsDate" v-model="twowheelsDate" class="input-field w-50 ml-2" value="" placeholder="二・小・原の取得日を入力">
+          </div>
+          
+          <div class="card-name-pro mb-2">
+            <input id="input-otherTitle" type="text" name="otherTitle" v-model="otherTitle" class="input-field w-50" value="" placeholder="�&nbsp;�目名を入力">
+
+            <input id="input-otherDate" type="text" name="otherDate" v-model="otherDate" class="input-field w-50 ml-2" value="" placeholder="その他の取得日を入力">
+          </div>
+
+          <div class="card-name-pro">
+            <input id="input-twoclassTitle" type="text" name="twoclassTitle" v-model="twoclassTitle" class="input-field w-50" value="" placeholder="�&nbsp;�目名を入力">
+
+            <input id="input-twoclassDate" type="text" name="twoclassDate" v-model="twoclassDate" class="input-field w-50 ml-2" value="" placeholder="二種の取得日を入力">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 種類 -->
+    <div id="inputArea8" class="input-area">
+      <div class="input-area-body">
+        <small>*お好きな文字を入力してく�&nbsp;さい</small>
+        <h4 class="h4title">1段目</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <input id="type1" type="text" name="type1" v-model="type1" class="hanzen input-field w-25" value="" placeholder="" onkeyup="checkInputType(1)">
+
+            <input id="type2" type="text" name="type2" v-model="type2" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(2)">
+
+            <input id="type3" type="text" name="type3" v-model="type3" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(3)">
+
+            <input id="type4" type="text" name="type4" v-model="type4" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(4)">
+
+            <input id="type5" type="text" name="type5" v-model="type5" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(5)">
+
+            <input id="type6" type="text" name="type6" v-model="type6" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(6)">
+
+            <input id="type7" type="text" name="type7" v-model="type7" class="hanzen input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(7)">
+          </div>
+        </div>
+
+        <h4 class="h4title mt-2">2段目</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <input id="type8" type="text" name="type8" v-model="type8" class="input-field w-25" value="" placeholder="" onkeyup="checkInputType(8)">
+
+            <input id="type9" type="text" name="type9" v-model="type9" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(9)">
+
+            <input id="type10" type="text" name="type10" v-model="type10" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(10)">
+
+            <input id="type11" type="text" name="type11" v-model="type11" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(11)">
+
+            <input id="type12" type="text" name="type12" v-model="type12" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(12)">
+
+            <input id="type13" type="text" name="type13" v-model="type13" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(13)">
+
+            <input id="type14" type="text" name="type14" v-model="type14" class="input-field w-25 ml-1" value="" placeholder="" onkeyup="checkInputType(14)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 委員会・角印 -->
+    <div id="inputArea9" class="input-area">
+      <div class="input-area-body mb-0 pb-1">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <textarea name="committee" rows="2" cols="40" class="input-field mb-2" v-model="committee" placeholder="委員会名を入力"></textarea>
+        </div>
+      </div>
+
+      <div class="input-area-body pt-0 pb-1">
+        <div class="d-flex">
+          <h4 class="pt-1">角印を表示する</h4>
+          <div class="switchArea ml-2">
+            <input type="checkbox" id="kakuin-switch" onclick="checkKakuin(this,'checkBox')" checked="">
+            <label for="kakuin-switch"><span></span></label>
+            <div id="swImg"></div>
+          </div>
+        </div>
+
+        <div id="kakuin-input-area" style="display:block;">
+          <textarea name="licenseKakuin" rows="3" cols="40" class="input-field mb-2" v-model="licenseKakuin" placeholder="角印の文字を入力(改行推奨)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- カラー設定 -->
+    <div id="inputArea10" class="input-area">
+      <div class="input-area-body">
+        <h4 class="h4title">カードデザイン</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <p class="m-0">背景：</p>
+            <input type="color" id="bg-color-picker" name="bg_color" class="color-field" value="#ffffff" list="bg_colors">
+            <datalist id="bg_colors">
+              <option value="#ffffff"></option>
+              <option value="#000000"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">有効期限の背景：</p>
+            <input type="color" id="header-color-picker" name="header_color" class="color-field" value="#58b2fc" list="header_colors">
+            <datalist id="header_colors">
+              <option value="#58b2fc"></option>
+              <option value="#C1AB05"></option>
+              <option value="#89DA59"></option>
+              <option value="#000000"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">番号・種類の背景：</p>
+            <input type="color" id="number-color-picker" name="number_color" class="color-field" value="#ffd0c7" list="number_colors">
+            <datalist id="number_colors">
+              <option value="#ffd0c7"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">写真の背景：</p>
+            <input type="color" id="image-color-picker" name="image_color" class="color-field" value="#83c1f3" list="image_colors">
+            <datalist id="image_colors">
+              <option value="#83c1f3"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">線の色：</p>
+            <input type="color" id="border-color-picker" name="border_color" class="color-field" value="#000000" list="border_colors">
+            <datalist id="border_colors">
+              <option value="#000000"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+        </div>
+
+        <h4 class="h4title mt-2">文字色</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <p class="m-0">全体：</p>
+            <input type="color" id="name-color-picker" name="name_color" class="color-field" value="#000000" list="name_colors">
+            <datalist id="name_colors">
+              <option value="#000000"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+
+          <div class="card-name-pro">
+            <p class="m-0">免許証名：</p>
+            <input type="color" id="license-color-picker" name="license_color" class="color-field" value="#059ad4" list="license_colors">
+            <datalist id="license_colors">
+              <option value="#059ad4"></option>
+              <option value="#000000"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+
+          <div class="card-name-pro">
+            <p class="m-0">委員会・角印：</p>
+            <input type="color" id="kakuin-color-picker" name="kakuin_color" class="color-field" value="#d10c0c" list="kakuin_colors">
+            <datalist id="kakuin_colors">
+              <option value="#d10c0c"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 免許証名 -->
+    <div id="inputArea11" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <input id="input-licenseName" type="text" name="licenseName" v-model="licenseName" class="input-field mb-2" value="" placeholder="免許証名を入力">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 裏面 -->
+  <div class="reverse-input" style="display:none;">
+    <!-- 備考 -->
+    <div id="reverse_inputArea1" class="input-area" style="display:block;">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">�&nbsp;�目名：</p>
+          <input id="input-remarksTitle" type="text" name="remarksTitle" v-model="remarksTitle" class="input-field" value="" placeholder="�&nbsp;�目名を入力">
+        </div>
+
+        <!-- 備考の内容 -->
+        <div class="select-btn btn-type1 mt-2" data-toggle="modal" data-target="#cardDetailModal">備考の内容を入力</div>
+        <!-- Modal -->
+        <div class="modal fade" id="cardDetailModal" tabindex="-1" role="dialog" aria-labelledby="cardDetailTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cardDetailTitle">カード名の詳細設定</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="card-modal-body">
+                <div class="input-area-body">
+                  <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+                  <div class="card-name-pro align-items-center mb-2">
+                    <p class="m-0">1行目：</p>
+                    <input id="input-remarksText1" type="text" name="remarksText1" v-model="remarksText1" class="input-field" value="" placeholder="1行目を入力">
+                  </div>
+                  <div class="card-name-pro align-items-center mb-2">
+                    <p class="m-0">2行目：</p>
+                    <input id="input-remarksText2" type="text" name="remarksText2" v-model="remarksText2" class="input-field" value="" placeholder="2行目を入力">
+                  </div>
+                  <div class="card-name-pro align-items-center mb-2">
+                    <p class="m-0">3行目：</p>
+                    <input id="input-remarksText3" type="text" name="remarksText3" v-model="remarksText3" class="input-field" value="" placeholder="3行目を入力">
+                  </div>
+                  <div class="card-name-pro align-items-center mb-2">
+                    <p class="m-0">4行目：</p>
+                    <input id="input-remarksText4" type="text" name="remarksText4" v-model="remarksText4" class="input-field" value="" placeholder="4行目を入力">
+                  </div>
+                  <div class="card-name-pro align-items-center mb-2">
+                    <p class="m-0">5行目：</p>
+                    <input id="input-remarksText5" type="text" name="remarksText5" v-model="remarksText5" class="input-field" value="" placeholder="5行目を入力">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark mx-auto" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 備考の内容 -->
+      </div>
+    </div>
+
+    <!-- 注意書き -->
+    <div id="reverse_inputArea2" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div>
+          <textarea name="reverseText" rows="6" cols="40" class="input-field mb-1" v-model="reverseText" placeholder="注意書きを入力"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 特記欄 -->
+    <div id="reverse_inputArea3" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">�&nbsp;�目名：</p>
+          <input id="input-specialTitle" type="text" name="specialTitle" v-model="specialTitle" class="input-field" value="" placeholder="�&nbsp;�目名を入力">
+        </div>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">本文：</p>
+          <input id="input-specialText" type="text" name="specialText" v-model="specialText" class="input-field" value="" placeholder="本文を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- 特記欄 -->
+    <div id="reverse_inputArea3" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">�&nbsp;�目名：</p>
+          <input id="input-specialTitle" type="text" name="specialTitle" v-model="specialTitle" class="input-field" value="" placeholder="�&nbsp;�目名を入力">
+        </div>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">本文：</p>
+          <input id="input-specialText" type="text" name="specialText" v-model="specialText" class="input-field" value="" placeholder="本文を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- 署名欄 -->
+    <div id="reverse_inputArea4" class="input-area">
+      <div class="input-area-body">
+        <small>*文字を削除して、お好きな文字を入力してく�&nbsp;さい</small>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">�&nbsp;�目名：</p>
+          <input id="input-signTitle" type="text" name="signTitle" v-model="signTitle" class="input-field" value="" placeholder="�&nbsp;�目名を入力">
+        </div>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">本文：</p>
+          <input id="input-signTitleText" type="text" name="signTitleText" v-model="signTitleText" class="input-field" value="" placeholder="本文を入力">
+        </div>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">�&nbsp;�目名：</p>
+          <input id="input-signDate" type="text" name="signDate" v-model="signDate" class="input-field" value="" placeholder="�&nbsp;�目名を入力">
+        </div>
+        <div class="card-name-pro align-items-center mb-2">
+          <p class="m-0">本文：</p>
+          <input id="input-signDateText" type="text" name="signDateText" v-model="signDateText" class="input-field" value="" placeholder="本文を入力">
+        </div>
+      </div>
+    </div>
+
+    <!-- カラー設定 -->
+    <div id="reverse_inputArea5" class="input-area">
+      <div class="input-area-body">
+        <h4 class="h4title">カードデザイン</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <p class="m-0">背景：</p>
+            <input type="color" id="reverse-bg-color-picker" name="reverse_bg_color" class="color-field" value="#ffffff" list="reverse_bg_colors">
+            <datalist id="reverse_bg_colors">
+              <option value="#ffffff"></option>
+              <option value="#000000"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">主線の色：</p>
+            <input type="color" id="reverse-border-color-picker" name="reverse_border_image_color" class="color-field" value="#000000" list="reverse_border_image_colors">
+            <datalist id="reverse_border_image_colors">
+              <option value="#000000"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+          <div class="card-name-pro">
+            <p class="m-0">罫線の色：</p>
+            <input type="color" id="reverse-border2-color-picker" name="reverse_border2_color" class="color-field" value="#cccccc" list="reverse_border2_colors">
+            <datalist id="reverse_border2_colors">
+              <option value="#cccccc"></option>
+              <option value="#000000"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+            </datalist>
+          </div>
+        </div>
+
+        <h4 class="h4title mt-2">文字色</h4>
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="card-name-pro">
+            <p class="m-0">全体：</p>
+            <input type="color" id="reverse-text-color-picker" name="reverse_text_color" class="color-field" value="#000000" list="reverse_colors">
+            <datalist id="name_colors">
+              <option value="#000000"></option>
+              <option value="#ffffff"></option>
+              <option value="#BDC3C9"></option>
+              <option value="#FFFF00"></option>
+              <option value="#ffa500"></option>
+              <option value="#dc143c"></option>
+              <option value="#ffb6c1"></option>
+              <option value="#89DA59"></option>
+              <option value="#4169e1"></option>
+              <option value="#9370db"></option>
+            </datalist>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Adsense -->
+  <div class="createpage-ads">
+  <ins class="adsbygoogle" style="display:inline-block;width:100%;height:100%;" data-ad-client="ca-pub-1176782719838219" data-ad-slot="3947238898"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  </div>
+</div>
+
+ </div> <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/cropper/1.0.0/cropper.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="../../charat.me/orica/css/create_license_common_1.css" media="all">
+ <style class="hover"></style> <link defer="" rel="stylesheet" href="../../use.fontawesome.com/releases/v5.8.2/css/all.css"> <script src="../../code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script> <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-173356437-1"></script> <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script> <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script> <script src="../../charat.me/orica/js/app.js"></script> <script>
+  // アスペクト比
+  var cropAspectRatio = 98 / 123;
+</script>
+
+<script type="text/javascript" src="../../charat.me/orica/js/cardcreate_license_20241214-1557.js"></script>
+  </body></html>
